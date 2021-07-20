@@ -13,7 +13,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="BASISDATA1.platform_agreement_type")
+@Table(name="platform_agreement_type")
 public class AgreementType implements Serializable {
 
 	/**

@@ -20,7 +20,7 @@ public class BaseDaoCustomRepositoryTest extends TestBase{
 	@Autowired
 	private ServerInfoRepsotory serverInfoRepsotory;
 	private PageInfo pageInfo = null;
-	private String sql = "SELECT * FROM BASISDATA1.platform_server_info";
+	private String sql = "SELECT * FROM platform_server_info";
 	
 	@Before
 	public void init(){

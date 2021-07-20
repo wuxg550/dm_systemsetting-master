@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="BASISDATA1.platform_relation_templet")
+@Table(name="platform_relation_templet")
 public class RelationTemplet implements Serializable {
 
 	/**

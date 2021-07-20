@@ -21,7 +21,7 @@ import com.hy.zookeeper.config.util.UUIDTOOL;
  *
  */
 @Entity
-@Table(name="BASISDATA1.platform_server_entrance")
+@Table(name="platform_server_entrance")
 public class ServerEntrance implements Serializable {
 
 	/**

@@ -51,7 +51,7 @@ public class RelationTempletServiceImpl implements IRelationTempletService{
 	public Map<String, Object> getTempletPage(Integer pageNumber,
 			Integer pageSize, RelationTemplet templet) {
 		Map<String, Object> result = new HashMap<>();
-		String hql = " FROM BASISDATA1.PLATFORM_RELATION_TEMPLET WHERE 1=1 ";
+		String hql = " FROM RelationTemplet WHERE 1=1 ";
 		if(StringUtils.isNotBlank(templet.getSrcServerType())){
 			hql += " AND srcServerType='"+templet.getSrcServerType()+"'";
 		}
@@ -119,7 +119,7 @@ public class RelationTempletServiceImpl implements IRelationTempletService{
 
 	@Override
 	public boolean existTmeplet(RelationTemplet templet) {
-		String hql = " FROM BASISDATA1.PLATFORM_RELATION_TEMPLET WHERE srcServerType='" + templet.getSrcServerType()
+		String hql = " FROM RelationTemplet WHERE srcServerType='" + templet.getSrcServerType()
 				   + "' AND srcConsumerFc='" + templet.getSrcConsumerFc()
 				   + "' AND destServerType='" + templet.getDestServerType()
 				   + "' AND destProviderFc='" + templet.getDestProviderFc() + "'";
@@ -212,7 +212,7 @@ public class RelationTempletServiceImpl implements IRelationTempletService{
 	@Override
 	public void downloadTempletExcel(RelationTemplet templet,
 			HttpServletResponse response) {
-		String sql = " SELECT * FROM BASISDATA1.PLATFORM_RELATION_TEMPLET WHERE 1=1 ";
+		String sql = " SELECT * FROM RelationTemplet WHERE 1=1 ";
 		if(StringUtils.isNotBlank(templet.getSrcServerType())){
 			sql += " AND src_server_type='"+templet.getSrcServerType()+"'";
 		}

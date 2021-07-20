@@ -16,7 +16,7 @@ import com.hy.zookeeper.config.enums.ConfigFlagEnum;
  *
  */
 @Entity
-@Table(name="BASISDATA1.platform_server_info")
+@Table(name="platform_server_info")
 public class ServerInfo implements Serializable {
 	
 	/**

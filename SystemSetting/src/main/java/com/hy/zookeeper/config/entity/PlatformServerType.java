@@ -16,7 +16,7 @@ import com.alibaba.fastjson.annotation.JSONField;
  *
  */
 @Entity
-@Table(name="BASISDATA1.platform_server_type")
+@Table(name="platform_server_type")
 public class PlatformServerType implements Serializable {
 
 	/**

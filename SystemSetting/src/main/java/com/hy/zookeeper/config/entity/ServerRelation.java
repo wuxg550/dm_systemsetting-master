@@ -14,7 +14,7 @@ import javax.persistence.Transient;
  *
  */
 @Entity
-@Table(name="BASISDATA1.platform_server_relation")
+@Table(name="platform_server_relation")
 public class ServerRelation implements Serializable {
 
 	/**

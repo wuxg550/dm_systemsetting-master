@@ -39,7 +39,7 @@ public class ServerTypeServiceImpl implements IServerTypeService{
 		Map<String,Object> result = new HashMap<>();
 		//serverTypeRepsotory.
 		PageInfo pageInfo = new PageInfo();
-		StringBuilder sql = new StringBuilder("SELECT * FROM BASISDATA1.PLATFORM_SERVER_TYPE");
+		StringBuilder sql = new StringBuilder("SELECT * FROM PLATFORM_SERVER_TYPE");
 		if(serverType != null){
 			if(StringUtils.isNotBlank(serverType.getServerTypeName())){
 				sql.append(" and server_type_name like '%").append(serverType.getServerTypeName()).append("%' ");
@@ -122,7 +122,7 @@ public class ServerTypeServiceImpl implements IServerTypeService{
 
 	@Override
 	public long getCount(PlatformServerType serverType) {
-		StringBuilder sql = new StringBuilder(" SELECT count(*) FROM BASISDATA1.PLATFORM_SERVER_TYPE ");
+		StringBuilder sql = new StringBuilder(" SELECT count(*) FROM PLATFORM_SERVER_TYPE ");
 		if(serverType != null){
 			if(StringUtils.isNotBlank(serverType.getServerType())){
 				sql.append(" and server_type = '").append(serverType.getServerType()).append("' ");

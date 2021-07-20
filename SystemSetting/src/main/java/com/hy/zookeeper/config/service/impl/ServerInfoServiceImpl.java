@@ -74,7 +74,7 @@ public class ServerInfoServiceImpl implements IServerInfoService {
 		Map<String,Object> result = new HashMap<>();
 		//serverTypeRepsotory.
 		PageInfo pageInfo = new PageInfo();
-		String sql = "SELECT * FROM BASISDATA1.PLATFORM_SERVER_INFO where 1=1 ";
+		String sql = "SELECT * FROM PLATFORM_SERVER_INFO where 1=1 ";
 		if(info != null){
 			if(StringUtils.isNotBlank(info.getServerType())){
 				sql += " AND server_type='" + info.getServerType() + "'";
@@ -262,7 +262,7 @@ public class ServerInfoServiceImpl implements IServerInfoService {
 
 	@Override
 	public int updateStatus(String id,String status,String cumlum) {
-		String sql = "UPDATE BASISDATA1.PLATFORM_SERVER_INFO set "+cumlum+" = '"+status+"' where id = '"+id+"' ";
+		String sql = "UPDATE PLATFORM_SERVER_INFO set "+cumlum+" = '"+status+"' where id = '"+id+"' ";
 		if(serverInfoRepsotory.updateBySql(sql)>0){
 			createNode(serverInfoRepsotory.getOne(id),true);
 			return 1;
@@ -440,7 +440,7 @@ public class ServerInfoServiceImpl implements IServerInfoService {
 	public Map<String, Object> saveCommonServerInfo(CommonServerInfo info) {
 		Map<String, Object> result = new HashMap<>();
 		try{
-			String sql = " UPDATE BASISDATA1.PLATFORM_SERVER_INFO SET cascade_domain='" + info.getCascadeDomain()
+			String sql = " UPDATE PLATFORM_SERVER_INFO SET cascade_domain='" + info.getCascadeDomain()
 					+ "', org_id='" + info.getOrgId() + "', org_name='" + info.getOrgName() + "'";
 			serverInfoRepsotory.executeSQL(sql);
 			CuratorClient curator = ZookeeperUtil.getCuratorClient();

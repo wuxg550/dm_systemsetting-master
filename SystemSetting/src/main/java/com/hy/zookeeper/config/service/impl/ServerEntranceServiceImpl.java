@@ -180,7 +180,7 @@ public class ServerEntranceServiceImpl implements IServerEntranceService{
 		PageInfo pageInfo = new PageInfo();
 		pageInfo.setPage(page);
 		pageInfo.setRows(row);
-		String sql = "select * from BASISDATA1.platform_server_entrance";
+		String sql = "select * from platform_server_entrance";
 		List<ServerEntrance> serverEntranceList;
 		if(!org.springframework.util.StringUtils.isEmpty(serverId)){
 			sql += "   where server_id ='"+serverId+"'";

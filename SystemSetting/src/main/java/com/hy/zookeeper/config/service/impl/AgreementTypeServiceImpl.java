@@ -46,7 +46,7 @@ public class AgreementTypeServiceImpl implements IAgreementTypeService {
 		Map<String,Object> result = new HashMap<>();
 		//serverTypeRepsotory.
 		PageInfo pageInfo = new PageInfo();
-		String sql = "SELECT * FROM BASISDATA1.PLATFORM_AGREEMENT_TYPE";
+		String sql = "SELECT * FROM PLATFORM_AGREEMENT_TYPE";
 		pageInfo.setPage(page);
 		pageInfo.setRows(row);
 		List<AgreementType> agreementTypeList = agreementTypeRepository.findPageBySQL(sql, pageInfo);

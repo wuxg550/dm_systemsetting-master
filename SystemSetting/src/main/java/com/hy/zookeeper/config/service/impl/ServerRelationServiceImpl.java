@@ -617,7 +617,7 @@ public class ServerRelationServiceImpl implements IServerRelationService{
 		StringBuilder srcServerIds = new StringBuilder();
 		StringBuilder destServerIds = new StringBuilder();
 
-		String shql = " FROM BASISDATA1.PLATFORM_SERVER_INFO ";
+		String shql = " FROM ServerRelation ";
 		if(StringUtils.isNoneBlank(relation.getSrcServerName())){
 			shql += " AND serverName LIKE '%" + relation.getSrcServerName() + "%'";
 		}
@@ -632,7 +632,7 @@ public class ServerRelationServiceImpl implements IServerRelationService{
 			}
 		}
 
-		String dhql = " FROM BASISDATA1.PLATFORM_SERVER_INFO ";
+		String dhql = " FROM ServerRelation ";
 		if(StringUtils.isNoneBlank(relation.getDestServerName())){
 			dhql += " AND serverName LIKE '%" + relation.getDestServerName() + "%'";
 		}
@@ -672,7 +672,7 @@ public class ServerRelationServiceImpl implements IServerRelationService{
 	}
 
 	private String getRelationSearchHQL(ServerRelation relation, String srcServerIds, String destServerIds){
-		String hql = " FROM BASISDATA1.PLATFORM_SERVER_RELATION WHERE 1=1 ";
+		String hql = " FROM ServerRelation WHERE 1=1 ";
 		if(StringUtils.isNoneBlank(relation.getRelationName())){
 			hql += " AND relationName like '%" + relation.getRelationName() + "%'";
 		}
@@ -772,7 +772,7 @@ public class ServerRelationServiceImpl implements IServerRelationService{
 		PageInfo pageInfo = new PageInfo();
 		pageInfo.setPage(pageNumber);
 		pageInfo.setRows(pageSize);
-		String hql = " FROM BASISDATA1.PLATFORM_SERVER_RELATION WHERE 1=1 ";
+		String hql = " FROM ServerRelation WHERE 1=1 ";
 		if(StringUtils.isNoneBlank(relation.getRelationName())){
 			hql += " AND relationName like '%" + relation.getRelationName() + "%'";
 		}
@@ -1005,7 +1005,7 @@ public class ServerRelationServiceImpl implements IServerRelationService{
 			String destNode = lineId.split(split2)[1];
 			String[] srcInfo = srcNode.split(split1);
 			String[] destInfo = destNode.split(split1);
-			String hql = " DELETE FROM BASISDATA1.PLATFORM_SERVER_RELATION WHERE srcServerType='" + srcInfo[0]
+			String hql = " DELETE FROM ServerRelation WHERE srcServerType='" + srcInfo[0]
 					+ "' AND srcServerId='" + srcInfo[1] + "' AND srcConsumerFc='" + srcInfo[2]
 					+ "' AND destServerType='" + destInfo[0] + "' AND destServerId='" + destInfo[1]
 					+ "' AND destProviderFc='" + destInfo[2] + "'";
@@ -1027,7 +1027,7 @@ public class ServerRelationServiceImpl implements IServerRelationService{
 		String[] destInfo = destNode.split(split1);
 		String destServerId = destInfo[1];
 		String destProviderFc = destInfo[2];
-		String ehql = " FROM BASISDATA1.PLATFORM_SERVER_ENTRANCE WHERE serverId='" + destServerId
+		String ehql = " FROM ServerEntrance WHERE serverId='" + destServerId
 				+ "' AND fcs like '%" + destProviderFc + "%'";
 		List<ServerEntrance> eList = entranceRepository.findByHQL(ehql);
 		if(eList.size() == 1){
