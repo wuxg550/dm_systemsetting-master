@@ -1,0 +1,376 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hy.config</groupId>
+	<artifactId>SystemSetting</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.9.RELEASE</version>
+	</parent>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<dockerfile-maven-version>1.4.10</dockerfile-maven-version>
+
+		<config-client.version>1.0.9-RELEASES</config-client.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope> </dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.11</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>log4j</artifactId>
+					<groupId>log4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.curator</groupId>
+			<artifactId>curator-recipes</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.xerial</groupId> <artifactId>sqlite-jdbc</artifactId>
+			<version>3.21.0.1</version> </dependency> -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.teiid</groupId>
+			<artifactId>teiid-hibernate-dialect</artifactId>
+			<version>16.0.0</version>
+		</dependency>
+
+
+		<!--		<dependency>-->
+<!--			<groupId>mysql</groupId>-->
+<!--			<artifactId>mysql-connector-java</artifactId>-->
+<!--		</dependency>-->
+		<!--DM JDBC驱动 -->
+		<dependency>
+			<groupId>dm.jdbc</groupId>
+			<artifactId>DmJdbcDriver</artifactId>
+			<version>18</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/DmJdbcDriver18.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.dm.dialect</groupId>
+			<artifactId>hibernate4</artifactId>
+			<version>4.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/DmDialect-for-hibernate5.0.jar</systemPath>
+		</dependency>
+<!--		<dependency>
+		&lt;!&ndash;注意：只有这个版本的hibernate兼容达梦数据库 &ndash;&gt;
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.3.18.Final</version>
+		</dependency>-->
+
+		<!-- 用于Hibernate4的SQLite3 Dialect -->
+		<!-- <dependency> <groupId>com.enigmabridge</groupId> <artifactId>hibernate4-sqlite-dialect</artifactId>
+			<version>0.1.2</version> </dependency> -->
+
+		<!-- 用于配置数据源 -->
+		<!-- 数据库连接池 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.45</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.15</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>3.15</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.15</version>
+		</dependency>
+
+		<!-- 验证中心 -->
+		<dependency>
+			<groupId>cn.hy</groupId>
+			<artifactId>authori-sdk</artifactId>
+			<version>1.4.5-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>fastjson</artifactId>
+					<groupId>com.alibaba</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-collections4</artifactId>
+					<groupId>org.apache.commons</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-lang3</artifactId>
+					<groupId>org.apache.commons</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>cn.hy</groupId>
+					<artifactId>config-client</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- <dependency> <groupId>io.springfox</groupId> <artifactId>springfox-swagger2</artifactId>
+			<version>2.6.1</version> </dependency> <dependency> <groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId> <version>2.6.1</version> </dependency> -->
+
+		<dependency>
+			<groupId>net.sourceforge.nekohtml</groupId>
+			<artifactId>nekohtml</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.hy</groupId>
+			<artifactId>config-client</artifactId>
+			<version>${config-client.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>log4j</artifactId>
+					<groupId>log4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dom4j</artifactId>
+					<groupId>dom4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>prod</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<env.devMode>prod</env.devMode>
+				<skipAssemblyPROD>false</skipAssemblyPROD>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<!-- <plugin> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin> -->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.Application</mainClass>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<!-- <useUniqueVersions>false</useUniqueVersions> -->
+						</manifest>
+						<!-- <manifestEntries> <Class-Path>.</Class-Path> </manifestEntries> -->
+					</archive>
+
+					<!-- 打包排除的文件 -->
+					<excludes>
+						<exclude>*.*</exclude>
+						<exclude>dbs/**</exclude>
+						<!-- <exclude>static/**</exclude> <exclude>templates/**</exclude> -->
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<!--assembly test start -->
+			<!--this include the xml assembly -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>make-assembly-prod</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<finalName>${project.name}-${version}.${git.commit.id.abbrev}-${build.time}</finalName>
+							<skipAssembly>${skipAssemblyPROD}</skipAssembly>
+							<descriptors>
+								<descriptor>src/main/assembly/prod/assembly.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!--assembly test end -->
+
+			<!-- git版本号 -->
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>2.2.4</version>
+				<executions>
+					<execution>
+						<id>get-the-git-infos</id>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+					<prefix>git</prefix>
+					<verbose>false</verbose>
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+					<format>json</format>
+					<gitDescribe>
+						<skip>false</skip>
+						<always>false</always>
+						<dirty>-dirty</dirty>
+					</gitDescribe>
+				</configuration>
+			</plugin>
+			<!--打包时间-->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.10</version>
+				<executions>
+					<execution>
+						<id>timestamp-property</id>
+						<goals>
+							<goal>timestamp-property</goal>
+						</goals>
+						<configuration>
+							<name>build.time</name>
+							<pattern>yyyyMMddHHmmss</pattern>
+							<locale>zh_CN</locale>
+							<timeZone>Asia/Shanghai</timeZone>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skip>false</skip>
+					<testFailureIgnore>true</testFailureIgnore>
+					<argLine>-Dfile.encoding=UTF-8 ${argLine}</argLine>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.3.201502191951</version>
+				<executions>
+					<execution>
+						<id>pre-unit-test</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+						<configuration>
+							<destFile>D:/coverage-reports/jacoco.exec</destFile>
+							<dataFile>D:/coverage-reports/jacoco.exec</dataFile>
+							<outputDirectory>D:/coverage-reports</outputDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<dataFile>D:/coverage-reports/jacoco.exec</dataFile>
+							<outputDirectory>D:/coverage-reports</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- docker plugin -->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>${dockerfile-maven-version}</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<!-- 为了不影响本地打包，已经把该配置转移到Jenkins上
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                        -->
+					</execution>
+				</executions>
+				<configuration>
+					<repository>192.168.2.34:5000/system_setting</repository>
+					<tag>${project.version}</tag>
+				</configuration>
+			</plugin>
+		</plugins>
+		<!-- <finalName>platformConfig</finalName> -->
+	</build>
+</project>

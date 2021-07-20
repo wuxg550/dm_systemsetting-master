@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<serverInfo> 
+  <!-- 服务ID -->  
+  <serverId>caf5acb030714833af7760b521eb5bf9</serverId>  
+  <!-- 服务类型 -->  
+  <serverType>CSGateway</serverType>  
+  <!-- 服务名 -->  
+  <serverName>公共包测试</serverName>  
+  <!-- 服务所属机构编码 -->  
+  <orgCode>123456</orgCode>  
+  <!-- 服务地址类型 -->  
+  <addressType>IP</addressType>  
+  <!-- 地址值 -->  
+  <address>10.7.2.12</address>  
+  <!-- 流向 -->  
+  <relations> 
+    <relation destIp="10.7.2.36" destServerType="AlarmMonitorManage" srcServerType="RegisterTest" srcConsumerFc="FC_001" destServerId="C6F6AF2A-3629-417C-8A2F-BB6339749765" destPort="10086" destEntranceId="cf80eb4621384c67a0f946aed04eae82" relationName="RegisterTest_FC_001" srcServerId="123d321123121sesf123q123" destProtocol="TCP" destProviderFc="FC_001" destUrl=""/> 
+  </relations>  
+  <!-- 入口集合 -->  
+  <entrances>
+    <entrance>
+      <port>8080</port>
+      <protocol>TCP</protocol>
+      <url></url>
+      <userName>admin</userName>
+      <password>hhh!!23</password>
+      <fcs>
+        <fc>get01</fc>
+        <fc>get02</fc>
+      </fcs>
+    </entrance>
+    <entrance>
+      <port>8081</port>
+      <protocol>TCP</protocol>
+      <url></url>
+      <userName>admin</userName>
+      <password>admin</password>
+      <fcs>
+        <fc>get01</fc>
+        <fc>get02</fc>
+      </fcs>
+    </entrance>
+  </entrances>
+</serverInfo>

@@ -1,0 +1,1 @@
+mvn deploy:deploy-file -Dmaven.test.skip=true -Dfile=D:\webapp\workspace\ConfigClient\target\config-client-1.0.8-SNAPSHOT.jar -DgroupId=cn.hy -DartifactId=config-client -Dversion=1.0.8-SNAPSHOT -DrepositoryId=avtrace-maven-repository-snapshots -Dpackaging=jar -Durl=http://10.0.4.25:8081/nexus/content/repositories/snapshots/
